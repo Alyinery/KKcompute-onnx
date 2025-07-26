@@ -1,5 +1,3 @@
-GLSL shader files collected from Tencent NCNN on 2025.7.26.
-
 # NCNN GLSL extension
 
 ## rationale
@@ -189,6 +187,20 @@ void main()
 }
 ```
 # implementation
+
+|option|meaning|
+|---|---|
+|opt.use_fp16_storage|the device has fp16 storage support|
+|opt.use_fp16_arithmetic|the device has fp16 arithmetic support|
+|opt.use_fp16_uniform|the device has fp16 uniform buffer support|
+|opt.use_fp16_packed|the device has fp16 packed storage support for GLSL 4.2|
+|opt.use_int8_storage|the device has int8 storage support|
+|opt.use_int8_arithmetic|the device has int8 arithmetic support|
+|opt.use_int8_uniform|the device has int8 uniform buffer support|
+|opt.use_int8_packed|the device has int8 packed storage support for GLSL 4.2|
+|opt.use_shader_local_memory|enable local memory optimization on discrete gpu|
+|opt.use_subgroup_ops|the device has subgroup operation support|
+|opt.use_cooperative_matrix|the device has cooperative matrix support|
 
 ```c
 int compile_spirv_module(const char* comp_data, int comp_data_size, const Option& opt, std::vector<uint32_t>& spirv)
