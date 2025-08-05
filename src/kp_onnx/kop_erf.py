@@ -23,7 +23,6 @@ def compute_shader_erf(index=("input", "GlobalInvocationId", ivec2),
     data2[i] = s * y
 
 
-# Run shader operation asynchronously and then await
 _erf_code = compute_shader_erf.to_spirv()
 
 
@@ -58,3 +57,4 @@ class ErfOp:
         tensor_in.destroy()
         tensor_out.destroy()
         return outputs
+
