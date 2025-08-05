@@ -52,10 +52,6 @@ class ErfOp:
            .record(kp.OpTensorSyncLocal([tensor_out])) \
            .eval()
         outputs = [tensor_out.data().reshape(tensor_shape)]
-        seq.destroy()
-        algo.destroy()
-        tensor_in.destroy()
-        tensor_out.destroy()
+        del tensor_in
+        del tensor_out
         return outputs
-
-
