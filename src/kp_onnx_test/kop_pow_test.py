@@ -5,7 +5,7 @@ from kp_onnx.kop_pow import PowOp
 
 device_id = 0
 mgr = Manager(device_id)
-print(mgr.list_devices()[device_id])
+print(mgr.get_device_properties())
 
 pow_op = PowOp(mgr, ['input_base', 'input_exp'], ['output'])
 numpy_in = np.random.random(1024 * 1024 * 16)
@@ -22,3 +22,4 @@ print(f"{pow_op}:", time.time() - start_time, "seconds")
 print(numpy_out)
 print(kp_out)
 print(np.allclose(numpy_out, kp_out, rtol=1e-4, atol=1e-4))
+
