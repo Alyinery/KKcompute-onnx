@@ -1,9 +1,9 @@
 from kp import Manager
 import numpy as np
 import time
-from kp_onnx.kop_matmul import MatMulOp
+from src.kp_onnx.kop_matmul import MatMulOp
 
-device_id = 1
+device_id = 0
 mgr = Manager(device_id)
 print(mgr.get_device_properties())
 
@@ -39,4 +39,3 @@ print(f"{matmul_op}:", time.time() - start_time, "seconds")
 # print(kp_out)
 print('Max error:', np.abs(numpy_out - kp_out).max())
 print(np.allclose(numpy_out, kp_out, rtol=1e-4, atol=1e-4))
-

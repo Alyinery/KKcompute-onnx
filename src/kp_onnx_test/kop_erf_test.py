@@ -2,7 +2,7 @@ from kp import Manager
 import numpy as np
 import time
 from math import erf
-from kp_onnx.kop_erf import ErfOp
+from src.kp_onnx.kop_erf import ErfOp
 
 device_id = 0
 mgr = Manager(device_id)
@@ -23,4 +23,3 @@ print(f"{erf_op}:", time.time() - start_time, "seconds")
 print(numpy_out)
 print(kp_out)
 print(np.allclose(numpy_out, kp_out, rtol=1e-4, atol=1e-4))
-

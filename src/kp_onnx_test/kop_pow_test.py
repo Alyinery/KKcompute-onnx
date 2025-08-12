@@ -1,7 +1,7 @@
 from kp import Manager
 import numpy as np
 import time
-from kp_onnx.kop_pow import PowOp
+from src.kp_onnx.kop_pow import PowOp
 
 device_id = 0
 mgr = Manager(device_id)
@@ -17,9 +17,9 @@ print("Numpy:", time.time() - start_time, "seconds")
 
 start_time = time.time()
 kp_out = pow_op.run(numpy_in, numpy_exp)[0]
-print(f"{pow_op}:", time.time() - start_time, "seconds")
+print(f"{pow_op}: ", time.time() - start_time, "seconds")
 
 print(numpy_out)
 print(kp_out)
+print('Max error:', np.abs(numpy_out - kp_out).max())
 print(np.allclose(numpy_out, kp_out, rtol=1e-4, atol=1e-4))
-
